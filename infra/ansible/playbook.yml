@@ -16,12 +16,43 @@
       apt:
         update_cache: yes
 
-    - name: Install required packages
+    - name: Install required base packages
       apt:
         name:
-          - docker.io
-          - docker-compose
+          - ca-certificates
+          - curl
+          - gnupg
+          - lsb-release
           - git
+        state: present
+
+    - name: Add Docker's official GPG key
+      shell: |
+        mkdir -p /etc/apt/keyrings
+        curl -fsSL https://download.docker.com/linux/ubuntu/gpg | gpg --dearmor -o /etc/apt/keyrings/docker.gpg
+      args:
+        creates: /etc/apt/keyrings/docker.gpg
+
+    - name: Add Docker repository
+      shell: |
+        echo \
+        "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.gpg] \
+        https://download.docker.com/linux/ubuntu \
+        $(lsb_release -cs) stable" | tee /etc/apt/sources.list.d/docker.list > /dev/null
+      args:
+        creates: /etc/apt/sources.list.d/docker.list
+
+    - name: Update apt cache after adding Docker repo
+      apt:
+        update_cache: yes
+
+    - name: Install Docker and Docker Compose plugin
+      apt:
+        name:
+          - docker-ce
+          - docker-ce-cli
+          - containerd.io
+          - docker-compose-plugin
         state: present
 
     - name: Enable and start docker service
@@ -39,3 +70,6 @@
     - name: Construire et lancer les containers
       shell: |
         docker compose -f {{ project_dir }}/docker/docker-compose.yml up -d --build
+      args:
+        chdir: "{{ project_dir }}"
+      become: true
