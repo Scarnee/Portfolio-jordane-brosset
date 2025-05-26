@@ -1,0 +1,41 @@
+- name: Provision EC2 Instance
+  hosts: all
+  become: true
+
+  vars:
+    project_dir: /home/ubuntu/saas-platform
+
+  tasks:
+    - name: Cloner le projet depuis GitHub
+      git:
+        repo: "https://github.com/Scarnee/saas-platform.git"
+        dest: "{{ project_dir }}"
+        version: main
+
+    - name: Update apt cache
+      apt:
+        update_cache: yes
+
+    - name: Install required packages
+      apt:
+        name:
+          - docker.io
+          - docker-compose
+          - git
+        state: present
+
+    - name: Enable and start docker service
+      systemd:
+        name: docker
+        state: started
+        enabled: yes
+
+    - name: Add ubuntu user to docker group
+      user:
+        name: ubuntu
+        groups: docker
+        append: yes
+
+    - name: Construire et lancer les containers
+      shell: |
+        docker compose -f {{ project_dir }}/docker/docker-compose.yml up -d --build

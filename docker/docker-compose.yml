@@ -1,0 +1,63 @@
+# Environnement Docker Compose Local
+
+version: '3.8'
+
+services:
+  backend:
+    build: ../backend
+    container_name: flask-backend
+    restart: always
+    env_file: ../.env
+    volumes:
+      - ../backend:/app
+    depends_on:
+      - db
+    networks:
+      - internal
+
+  frontend:
+    build: ../frontend
+    container_name: react-frontend
+    restart: always
+    stdin_open: true
+    tty: true
+    environment:
+      - HOST=0.0.0.0
+      - BROWSER=none
+    ports:
+      - 3000:3000
+    networks:
+      - internal
+
+  db:
+    image: postgres:15
+    container_name: postgres-db
+    restart: always
+    env_file: ../.env
+    volumes:
+      - db-data:/var/lib/postgresql/data
+    networks:
+      - internal
+
+  nginx:
+    image: nginx:latest
+    container_name: nginx-proxy
+    restart: always
+    ports:
+      - 8080:80
+      - 8443:443
+    volumes:
+      - ./nginx/nginx.conf:/etc/nginx/nginx.conf:ro
+      - ./nginx/ssl:/etc/nginx/ssl/certs
+    depends_on:
+      - backend
+      - frontend
+    networks:
+      - internal
+
+networks:
+  internal:
+    driver: bridge
+
+volumes:
+  db-data:
