@@ -11,6 +11,7 @@
         repo: "https://github.com/Scarnee/saas-platform.git"
         dest: "{{ project_dir }}"
         version: main
+        force: yes
 
     - name: Update apt cache
       apt:
