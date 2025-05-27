@@ -1,0 +1,124 @@
+@import "../../utils/names_variables.scss";
+.mainContact {
+    display: flex;
+    height: 75%;
+    width: 80%;
+    justify-content: center;
+    align-items: center;
+    gap: 10%;
+    img {
+        width: 45%; 
+        object-fit: cover;
+        border-radius: 25px;
+        object-position:  100%;
+        background: rgba(0,0,0,0.5);
+        box-shadow: 0px 0px 15px 5px $second-color;
+    };
+    input, textarea{
+        font-family: "Orbitron", sans-serif;
+        font-optical-sizing: auto;
+        font-style: normal;
+        resize: none;
+    }
+    textarea:focus, input:focus{
+        outline: none;
+    }
+    .contactRight {
+        display: flex;
+        flex-direction: column;
+        width: 45%;
+        gap: 20px;
+        align-items: center;
+        h1 {
+            color: $third-color;
+        }
+        .socials{
+            width: 50%;
+            display: flex;
+            justify-content: space-evenly;
+        }
+        i{
+            color: $fifth-color;
+            font-size: 35px;
+        }
+        i:hover{
+            color: $third-color;
+        }
+        .contactForm {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+            width: 100%;
+            justify-content: center;
+            text-align: center;
+            #name {
+                width: 100%;
+                background-color: transparent;
+                border: none;
+                border-bottom: 1px solid $third-color;
+                color: $third-color;
+                text-align: center;
+            }
+            #email {
+                width: 100%;
+                background-color: transparent;
+                border: none;
+                border-bottom: 1px solid $third-color;
+                color: $third-color;
+                text-align: center;
+            }
+            #story {
+                width: 100%;
+                background-color: transparent;
+                border: none;
+                border-bottom: 1px solid $third-color;
+                color: $third-color;
+                text-align: center;
+            }
+            button {
+                font-family: "Orbitron", sans-serif;
+                font-optical-sizing: auto;
+                font-style: normal;
+                background-color: transparent;
+                border: solid 1px $third-color;
+                border-radius: 5px;
+                color: $fifth-color;
+                font-size: 25px;
+                padding: 5px 10px 5px 10px;
+            }
+            button:hover{
+                background-color: $third-color;
+            }
+        }
+    }
+}
+@include phone{
+    .mainContact{
+        flex-direction: column-reverse;
+        .contactRight{
+            width: 100%;
+        }
+        img{
+            display: none;
+        }
+        h1, button {
+            font-size: 20px !important;
+        }
+        h2, form {
+            font-size: 14px;
+        }
+        button:hover{
+            background-color: transparent;
+            color: $fifth-color;
+        }
+    }
+}
+@include tablet{
+    .mainContact{
+        flex-direction: column-reverse;
+        .contactRight{
+            width: 100%;
+        }
+    }
+}

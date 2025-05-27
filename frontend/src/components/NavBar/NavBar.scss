@@ -1,0 +1,78 @@
+@import "../../utils/names_variables.scss";
+nav {
+    z-index: 1000;
+    width: 90%;
+    height: 20%;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    align-items: end;
+    gap: 5px;
+    background: linear-gradient(180deg, $first-color 0%, $second-color 100%);
+    
+    .active {
+        color: $third-color;
+        text-decoration: none;
+        cursor: pointer;
+        font-size: 45px;
+        border: $third-color 2px solid;
+        border-bottom: none;
+        height: 100%;
+    }
+    a:hover {
+        color: $third-color;
+        text-decoration: none;
+        cursor: pointer;
+        font-size: 45px;
+        border: $third-color 2px solid;
+        border-bottom: none;
+        height: 100%;
+       
+    }
+    a {
+        color: $fifth-color;
+        font-size: 35px;
+        border: solid 2px $fifth-color;
+        border-bottom: none;
+        text-decoration: none;
+        display: flex;
+        height: 90%;
+        justify-content: center;
+        align-items: center;
+        border-top-left-radius: 10px;
+        border-top-right-radius: 10px;
+        transition: 200ms;
+    }
+}
+@include phone {
+    nav {
+        grid-template-columns: 1fr 1fr;
+        a {
+            border: solid 2px $fifth-color;
+            border-radius: 10px;
+            font-size: 18px;
+            height: 90%;
+        }
+        a:hover{
+            font-size: 18px;
+            border: $third-color 2px solid;
+            height: 90%;
+        }
+        .active {
+            font-size: 18px;
+            border: $third-color 2px solid;
+            height: 90%;
+        }
+    }
+}
+@include tablet{
+    nav{
+        a {
+            font-size: 28px;
+            height: 90%;
+        }
+        .active {
+            font-size: 28px;
+            height: 100%;
+        }
+    }
+}

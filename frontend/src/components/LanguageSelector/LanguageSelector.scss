@@ -1,0 +1,97 @@
+@import "../../utils/names_variables.scss";
+
+.dropdown {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    position: relative;
+    .hidden{
+        display: none;
+    }
+    .dropdownTop {
+        z-index: 2;
+        position: relative;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background-color: transparent;
+        padding: 12px 20px;
+        border-radius: 7px;
+        font-size: 16px;
+        font-weight: 700;
+        color: white;
+    }
+    .dropdownTop:hover {
+        color: $third-color;
+    }
+    .dropdownTop:hover {
+        button {
+            color: $third-color; 
+        }
+    }
+
+    .dropdownTitle {
+        margin: 0;
+    }
+    .btnValeurs {
+        border: none;
+        width: 32px;
+        height: 32px;
+        flex-shrink: 0;
+        background-color: transparent;
+        color: white;
+        transition: transform 0.2s;
+    }
+    .btnValeurs.btnOpen {
+        transform: rotate(-180deg);
+    }
+    .dropdownText {
+        z-index: 1;
+        display: flex;
+        position: absolute;
+        width: 100%;
+        top: 100%;
+        right: 0%;
+        flex-direction: column;
+        gap: 5px;
+        background-color: transparent;
+        border-bottom-left-radius: 7px;
+        border-bottom-right-radius: 7px;
+        overflow: hidden;
+        transition: all 200ms;
+        height: 0px;
+        ul {
+            box-sizing: border-box;
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+            padding:  10px 0px 10px 0px;
+            margin: 0;
+            border: 1px solid $second-color;
+            border-radius: 10px;
+            option {
+                padding: 0;
+                color: $fifth-color;
+                font-size: 13px;
+                list-style: none;
+                
+            }
+            option:hover{
+                color: $third-color;
+            }
+        }
+    }
+
+    @media (max-width: 460px) {
+        .dropdownTop {
+            font-size: 13px;
+            padding: 3px 10px 3px 10px;
+        }
+        .btnValeurs img {
+            width: 16px;
+        }
+        .dropdownText ul li {
+            font-size: 11px;
+        }
+    }
+}

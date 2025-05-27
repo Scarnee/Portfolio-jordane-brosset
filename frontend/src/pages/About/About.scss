@@ -1,0 +1,62 @@
+@import "../../utils/names_variables.scss";
+
+.mainAbout {
+    width: 80%;
+    display: flex;
+    flex-direction: row;
+    height: 75%;
+    align-items: center;
+    gap: 10%;
+    img {
+        width: 45%; 
+        object-fit: cover;
+        border-radius: 25px;
+        object-position:  100%;
+        background: rgba(0,0,0,0.5);
+        box-shadow: 0px 0px 15px 5px $second-color;
+    };
+    .textAbout {
+        .aboutName {
+            color: $third-color;
+            font-size: 40px;
+        }
+        h1 {
+            white-space: nowrap;
+        }
+        display: flex;
+        flex-direction: column;
+        width: 45%;
+    }
+}
+@include phone {
+    .mainAbout {
+        flex-direction: column-reverse !important;
+        gap: 5%;
+        justify-content: space-evenly;
+        h1,
+        .aboutName {
+            font-size: 20px !important;
+        }
+        h2 {
+            font-size: 14px;
+        }
+        .textAbout {
+            width: 100% !important;
+        }
+        img {
+            width: 100% !important;
+            aspect-ratio: 2/1;
+        }
+    }
+}
+@include tablet{
+    .mainAbout{
+         h1,
+        .aboutName {
+            font-size: 30px !important;
+        }
+        h2 {
+            font-size: 20px;
+        }
+    }
+}

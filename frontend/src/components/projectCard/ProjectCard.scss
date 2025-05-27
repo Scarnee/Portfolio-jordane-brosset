@@ -1,0 +1,153 @@
+@import "../../utils/names_variables.scss";
+
+.card {
+    position: relative;
+    width: 100%;
+    height: 95%;
+    background-color: #f2f2f2;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    perspective: 1000px;
+    box-shadow: 0 0 0 5px $first-color;
+    transition: all 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    box-sizing: border-box; 
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+}
+.card:hover {
+    transform: scale(1.05);
+    box-shadow: 0px 4px 4px $third-color;
+}
+
+.cardContent {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    padding: 20px;
+    box-sizing: border-box;
+    color: $second-color;
+    align-items: center;
+    background-color: #f2f2f2;
+    transform: rotateX(-90deg);
+    transform-origin: bottom;
+    transition: all 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+.card:hover .cardContent {
+    transform: rotateX(0deg);
+}
+.cardContent ul {
+    width: 100%;
+    padding: 0;
+    display: flex;
+    list-style-type: none;
+    justify-content: space-evenly;
+    li{
+
+    }
+}
+
+.card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: all 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+.card:hover ~ img {
+    scale: 0;
+}
+.cardTitle {
+    margin: 0;
+    font-size: 24px;
+    color: $third-color;
+    font-weight: 700;
+}
+
+.cardDescription {
+    margin: 10px 0 0;
+    font-size: 14px;
+    line-height: 1.4;
+}
+
+.gitLink{
+        width: 50%;
+
+}
+.btnGit{
+    font-family: "Orbitron", sans-serif;
+    font-optical-sizing: auto;
+    font-style: normal;
+    width: 100%;
+    padding: 15px;
+    border-radius: 8px;
+    background: $third-color;
+    border: none;
+    color: $fifth-color;
+    cursor: pointer;
+}
+@include phone {
+    .card {
+        .cardContent{
+            display: flex;
+            background-color: #f2f2f2;
+            opacity: 0.9;
+            transform: rotateX(0deg);
+        }
+        .cardTitle {
+            font-size: 10px;
+            z-index: 1000;
+        }
+
+        ul {
+            font-size: 10px;
+            z-index: 1000;
+        }
+        .cardDescription {
+            display: block;
+            font-size: 10px;
+            z-index: 1000;
+            text-shadow: 0.2px 0 0 #000, 0 -0.2px 0 #000, 0 0.2px 0 #000, -0.2px 0 0 #000;
+        }
+        .btnGit{
+            font-size: 8px;
+            padding: 6px;
+        }
+    }
+}
+@include tablet {
+    .card {
+        .cardContent{
+            display: flex;
+            background-color: #f2f2f2;
+            opacity: 0.9;
+            transform: rotateX(0deg);
+        }
+        .cardTitle {
+            font-size: 22px;
+            z-index: 1000;
+        }
+
+        ul {
+            font-size: 14px;
+            z-index: 1000;
+        }
+        .cardDescription {
+            display: block;
+            font-size: 14px;
+            z-index: 1000;
+            text-shadow: 0.2px 0 0 #000, 0 -0.2px 0 #000, 0 0.2px 0 #000, -0.2px 0 0 #000;
+        }
+        .btnGit{
+            font-size: 12px;
+            padding: 10px;
+        }
+       
+    }
+}
