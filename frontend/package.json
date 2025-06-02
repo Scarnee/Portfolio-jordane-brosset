@@ -11,8 +11,6 @@
   },
   "dependencies": {
     "@emailjs/browser": "^4.3.3",
-    "@vercel/analytics": "^1.2.2",
-    "@vercel/speed-insights": "^1.0.10",
     "framer-motion": "^11.0.12",
     "i18n": "^0.15.1",
     "i18next": "^23.10.1",
