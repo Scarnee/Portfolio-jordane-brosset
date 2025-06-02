@@ -4,6 +4,7 @@
 
   vars:
     project_dir: /home/ubuntu/saas-platform
+    docker_image_name: react-frontend
 
   tasks:
     - name: Cloner le projet depuis GitHub
@@ -68,9 +69,10 @@
         groups: docker
         append: yes
 
-    - name: Construire et lancer les containers
-      shell: |
-        docker compose -f {{ project_dir }}/docker/docker-compose.yml up -d --build
+    - name: Construire l'image Docker
+      command: docker build -t {{ docker_image_name }} .
       args:
-        chdir: "{{ project_dir }}"
-      become: true
+        chdir: "{{ project_dir }}/frontend"
+
+    - name: Lancer le conteneur Docker
+      command: docker run -d -p 5173:5173 --name react-frontend-container {{ docker_image_name }}

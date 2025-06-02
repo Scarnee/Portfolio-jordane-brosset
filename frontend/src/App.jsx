@@ -22,22 +22,22 @@ function RoutesWithAnimation() {
 }*/
 
 function App() {
-    const location = useLocation();
-    return (
-        <div className="main">
-            <Header />
-            <AnimatePresence mode="wait">
-                <Routes location={location} key={location.pathname}>
-                    <Route path="/" element={<Home />} />
-                    <Route path="/about" element={<About />} />
-                    <Route path="/skills" element={<Skills />} />
-                    <Route path="/projects" element={<Projects />} />
-                    <Route path="/contact" element={<Contact />} />
-                </Routes>
-            </AnimatePresence>
-            <NavBar />
-        </div>
-    );
+  const location = useLocation();
+  return (
+    <div className="main">
+      <Header />
+      <AnimatePresence mode="wait">
+        <Routes location={location} key={location.pathname}>
+          <Route path="/" element={<Home />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/skills" element={<Skills />} />
+          <Route path="/projects" element={<Projects />} />
+          <Route path="/contact" element={<Contact />} />
+        </Routes>
+      </AnimatePresence>
+      <NavBar />
+    </div>
+  );
 }
 
 export default App;

@@ -1,15 +1,14 @@
-FROM node:18
-
+# Étape de build
+FROM node:21-alpine3.20 AS builder
 WORKDIR /app
-
-COPY package*.json ./
+COPY package.json package-lock.json ./
 RUN npm install
-
 COPY . .
+RUN npm run build
 
-EXPOSE 3000
-
-ENV HOST=0.0.0.0
-ENV BROWSER=none
-
-CMD ["npm", "start"]
+# Étape de production
+FROM nginx:alpine
+COPY --from=builder /app/dist /usr/share/nginx/html
+COPY nginx.conf /etc/nginx/nginx.conf
+EXPOSE 80
+CMD ["nginx", "-g", "daemon off;"]
