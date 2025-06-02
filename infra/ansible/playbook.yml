@@ -5,7 +5,8 @@
   vars:
     project_dir: /home/ubuntu/saas-platform
     docker_image_name: react-frontend
-
+    container_name: react-frontend-container
+    
   tasks:
     - name: Cloner le projet depuis GitHub
       git:
