@@ -69,6 +69,14 @@
         groups: docker
         append: yes
 
+    - name: Stop existing container (if running)
+      shell: docker stop {{ container_name }}
+      ignore_errors: true
+
+    - name: Remove existing container (if exists)
+      shell: docker rm {{ container_name }}
+      ignore_errors: true
+
     - name: Construire l'image Docker
       command: docker build -t {{ docker_image_name }} .
       args:
