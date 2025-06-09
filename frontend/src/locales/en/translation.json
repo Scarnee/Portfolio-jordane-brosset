@@ -1,12 +1,12 @@
 {
   "selectedLanguage": "English",
-  "title": "Web Developer",
+  "title": "Web Developer & DevOps Engineer",
   "about": "About",
   "contact": "Contact",
   "skills": "Skills",
   "projects": "Projects",
   "firstAbout": "Hi ! My name is ",
-  "secondAbout": "I'm a web developer based in France",
+  "secondAbout": "I'm a web developer and devops engineer based in France",
   "thirdAbout": "I used to work as a mechanical engineer",
   "fourthAbout": "I'm passionate about coding and all sorts of new technologies",
   "fifthAbout": "Feel free to reach out to me !",
@@ -20,5 +20,7 @@
   "youremail": "Your email",
   "yourmessage": "Your message",
   "contactMe": "Contact me",
-  "downloadCV": "Download CV (French)"
+  "downloadCV": "Download CV (French)",
+  "teamwork": "Teamwork",
+  "continuousLearning": "Continuous Learning"
 }
