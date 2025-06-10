@@ -1,37 +1,28 @@
 @import "../../utils/names_variables.scss";
+
 nav {
+    position: fixed;
+    bottom: 0;
+    left: 5%;
     z-index: 1000;
     width: 90%;
     height: 20%;
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-columns: repeat(4, 1fr);
     align-items: end;
-    gap: 5px;
-    background: linear-gradient(180deg, $first-color 0%, $second-color 100%);
-    
-    .active {
-        color: $third-color;
-        text-decoration: none;
-        cursor: pointer;
-        font-size: 45px;
-        border: $third-color 2px solid;
-        border-bottom: none;
-        height: 100%;
-    }
-    a:hover {
-        color: $third-color;
-        text-decoration: none;
-        cursor: pointer;
-        font-size: 45px;
-        border: $third-color 2px solid;
-        border-bottom: none;
-        height: 100%;
-       
-    }
+    gap: 8px;
+    background: transparent;
+    padding: 0 15px;
+    box-sizing: border-box;
+    //box-shadow: 0 -4px 15px rgba(0, 0, 0, 0.2);
+    border-top-left-radius: 12px;
+    border-top-right-radius: 12px;
+    backdrop-filter: blur(2px);
+
     a {
-        color: $fifth-color;
+        color: lighten($fifth-color, 10%);
         font-size: 35px;
-        border: solid 2px $fifth-color;
+        border: solid 2px transparent;
         border-bottom: none;
         text-decoration: none;
         display: flex;
@@ -40,39 +31,97 @@ nav {
         align-items: center;
         border-top-left-radius: 10px;
         border-top-right-radius: 10px;
-        transition: 200ms;
+        transition: all 300ms cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        box-sizing: border-box;
+        background: rgba(255, 255, 255, 0.05);
+        margin-bottom: -1px;
+        text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+        position: relative;
+        overflow: hidden;
+
+        &::before {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: $fifth-color;
+            transform: scaleX(0);
+            transition: transform 300ms ease;
+            transform-origin: center;
+        }
+
+        &:hover {
+            color: lighten($third-color, 10%);
+            background: rgba(255, 255, 255, 0.1);
+            transform: translateY(-2px);
+
+            &::before {
+                transform: scaleX(0.7);
+                background: $third-color;
+            }
+        }
+
+        &.active {
+            color: $third-color;
+            background: rgba(255, 255, 255, 0.1);
+            height: 100%;
+            font-size: 45px;
+            border-color: transparent;
+            transform: translateY(-2px);
+            box-shadow: 0 -5px 10px rgba(0, 0, 0, 0.1);
+
+            &::before {
+                transform: scaleX(1);
+                background: $third-color;
+            }
+        }
     }
 }
+
 @include phone {
     nav {
-        grid-template-columns: 1fr 1fr;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 6px;
+        padding: 0 8px;
+
         a {
-            border: solid 2px $fifth-color;
+            border: solid 2px rgba($fifth-color, 0.3);
             border-radius: 10px;
             font-size: 18px;
             height: 90%;
-        }
-        a:hover{
-            font-size: 18px;
-            border: $third-color 2px solid;
-            height: 90%;
-        }
-        .active {
-            font-size: 18px;
-            border: $third-color 2px solid;
-            height: 90%;
+            margin-bottom: 0;
+
+            &::before {
+                display: none;
+            }
+
+            &:hover, &.active {
+                font-size: 18px;
+                border-color: $third-color;
+                height: 90%;
+                transform: none;
+                background: rgba(255, 255, 255, 0.2);
+            }
+
+            &.active {
+                box-shadow: 0 0 10px rgba($third-color, 0.3);
+            }
         }
     }
 }
-@include tablet{
-    nav{
+
+@include tablet {
+    nav {
         a {
             font-size: 28px;
             height: 90%;
-        }
-        .active {
-            font-size: 28px;
-            height: 100%;
+
+            &.active {
+                font-size: 32px;
+                height: 100%;
+            }
         }
     }
 }
