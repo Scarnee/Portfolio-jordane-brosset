@@ -30,15 +30,32 @@
       box-sizing: border-box;
       text-align: center;
       transition: transform 0.3s;
+      border: 1px solid rgba(255, 255, 255, 0.1);
 
       &:hover {
-        transform: translateY(4px);
+        border-color: rgba($third-color, 0.3);
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
       }
 
       h2 {
         color: $third-color;
-        margin-bottom: 12px;
+        margin-bottom: 16px;
         font-size: 18px;
+        font-weight: 600;
+        letter-spacing: 0.5px;
+        text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        position: relative;
+        &::after {
+          content: "";
+          position: absolute;
+          bottom: -8px;
+          left: 50%;
+          transform: translateX(-50%);
+          width: 40px;
+          height: 2px;
+          background: rgba($third-color, 0.5);
+          border-radius: 2px;
+        }
       }
 
       .iconList {
@@ -79,6 +96,8 @@
           gap: 10px;
           font-size: 14px;
           color: $fifth-color;
+          padding: 5px 0;
+          border-bottom: 1px dashed rgba($fifth-color, 0.2);
 
           i {
             color: $third-color;
@@ -97,7 +116,11 @@
     padding: 10px 20px;
     background-color: rgba(255, 255, 255, 0.03);
     border-radius: 12px;
-
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    &:hover {
+      border-color: rgba($third-color, 0.3);
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+    }
     p {
       margin: 0;
       font-size: 14px;
@@ -130,10 +153,10 @@
     p {
       font-size: 10px !important;
     }
-    ul{ 
+    ul {
       gap: 10px !important;
     }
-    li{
+    li {
       font-size: 10px !important;
       justify-content: start !important;
     }
@@ -149,7 +172,7 @@
       gap: 10px !important;
       justify-content: start !important;
       flex-wrap: nowrap;
-      align-items: center;    
+      align-items: center;
     }
 
     .section {
@@ -163,18 +186,49 @@
       justify-content: center;
       align-items: center;
       max-height: 10%;
+      margin-bottom: 10px;
     }
   }
 }
 
 @include tablet {
   .mainSkills {
+    
     .topSkills {
-      justify-content: center;
+      flex-direction: row !important;
+      gap: 10px !important;
     }
-
+    p {
+      font-size: 10px !important;
+    }
+    ul {
+      gap: 10px !important;
+    }
+    li {
+      font-size: 10px !important;
+      justify-content: start !important;
+    }
+    h2 {
+      font-size: 12px !important;
+    }
+    i {
+      font-size: 10px !important;
+    }
+    .topSkills {
+      justify-content: space-evenly;
+    }
+    .bottomSkills {
+      flex-direction: row;
+      gap: 10px;
+      justify-content: center;
+      align-items: center;
+      max-height: 10%;
+      margin-bottom: 10px;
+    }
     .section {
-      flex: 1 1 45%;
+      flex: 1 1 15% !important;
+      min-width: 0px !important;
+      padding: 4px !important;
     }
   }
 }

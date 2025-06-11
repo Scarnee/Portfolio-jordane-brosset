@@ -31,6 +31,12 @@
         }
         .homeContent{
             flex-direction: column;
+            h1 {
+                font-size: 20px;
+            }
+            h2 {
+                font-size: 15px;
+            }
         }
         img{
             width: 100%;
@@ -41,7 +47,7 @@
             flex-direction: column;
         }
         .homeContent{
-            flex-direction: column;
+            flex-direction: row;
         }
         .homeDescription{
             h1{
@@ -52,7 +58,7 @@
             }
         }
         img{
-            width: 75%;
+            width: 50%;
         }
     }
     
