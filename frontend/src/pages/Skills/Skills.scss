@@ -9,6 +9,15 @@
   width: 80%;
   box-sizing: border-box;
   overflow: hidden;
+  .svg-icon {
+    height: auto;
+    img {
+      width: 28px;
+      height: 28px;
+      filter: invert(100%) sepia(98%) saturate(8%) hue-rotate(125deg)
+        brightness(104%) contrast(103%);
+    }
+  }
 
   .topSkills {
     display: flex;
@@ -164,7 +173,10 @@
       font-size: 12px !important;
     }
     i {
-      font-size: 10px !important;
+      font-size: 12px !important;
+    }
+    img {
+      height: 12px !important;
     }
     .topSkills {
       overflow-y: visible !important;
@@ -193,7 +205,6 @@
 
 @include tablet {
   .mainSkills {
-    
     .topSkills {
       flex-direction: row !important;
       gap: 10px !important;
@@ -212,7 +223,10 @@
       font-size: 12px !important;
     }
     i {
-      font-size: 10px !important;
+      font-size: 12px !important;
+    }
+    img {
+      height: 12px !important;
     }
     .topSkills {
       justify-content: space-evenly;

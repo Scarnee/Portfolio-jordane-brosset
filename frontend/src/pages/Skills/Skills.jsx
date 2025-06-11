@@ -6,6 +6,12 @@ import {
 } from "../../utils/transition_variants";
 import { motion } from "framer-motion";
 import { useTranslation } from "react-i18next";
+import DynaLogo from "../../assets/dyna.svg";
+import TerraformLogo from "../../assets/terraform.svg";
+import KubernetesLogo from "../../assets/kubeLogo.svg";
+import AnsibleLogo from "../../assets/ansibleLogo.svg";
+import MongoLogo from "../../assets/mongoLogo.svg";
+import AzureLogo from "../../assets/azureLogo.svg";
 
 export default function Skills() {
   const { t } = useTranslation();
@@ -22,23 +28,26 @@ export default function Skills() {
 
   const backendSkills = [
     { icon: "fa-brands fa-node", label: "NodeJS" },
-    { icon: "fa-solid fa-database", label: "MongoDB" },
+    { icon: <img src={MongoLogo} alt="MongoDB" />, label: "MongoDB" },
     { icon: "fa-solid fa-network-wired", label: "REST APIs" },
   ];
 
   const devOpsSkills = [
     { icon: "fa-brands fa-docker", label: "Docker" },
     { icon: "fa-brands fa-aws", label: "AWS" },
-    { icon: "fa-brands fa-microsoft", label: "Microsoft Azure" },
-    { icon: "fa-solid fa-cloud-arrow-up", label: "Terraform" },
-    { icon: "fa-solid fa-gears", label: "Kubernetes" },
-    { icon: "fa-solid fa-magnifying-glass-chart", label: "Dynatrace" },
+    { icon: < img src={AzureLogo} alt="Microsoft Azure" />, label: "Microsoft Azure" },
+    { icon: <img src={TerraformLogo} alt="Terraform" />, label: "Terraform" },
+    {
+      icon: <img src={KubernetesLogo} alt="Kubernetes" />,
+      label: "Kubernetes",
+    },
+    { icon: <img src={DynaLogo} alt="Dynatrace" />, label: "Dynatrace" },
   ];
 
   const ciCdSkills = [
     { icon: "fa-brands fa-github", label: "GitHub Actions" },
     { icon: "fa-brands fa-gitlab", label: "GitLab CI" },
-    { icon: "fa-solid fa-wand-magic-sparkles", label: "Ansible" },
+    { icon: <img src={AnsibleLogo} alt="Ansible" />, label: "Ansible" },
     { icon: "fa-brands fa-python", label: "Python Scripting" },
     { icon: "fa-solid fa-terminal", label: "PowerShell Scripting" },
   ];
@@ -55,7 +64,11 @@ export default function Skills() {
   const renderSkills = (skills) =>
     skills.map((skill, index) => (
       <div className="skill" key={index}>
-        <i className={skill.icon}></i>
+        {typeof skill.icon === "string" ? (
+          <i className={skill.icon}></i>
+        ) : (
+          <div className="svg-icon">{skill.icon}</div>
+        )}
         <p>{skill.label}</p>
       </div>
     ));
