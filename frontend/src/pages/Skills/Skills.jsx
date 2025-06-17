@@ -12,6 +12,7 @@ import KubernetesLogo from "../../assets/kubeLogo.svg";
 import AnsibleLogo from "../../assets/ansibleLogo.svg";
 import MongoLogo from "../../assets/mongoLogo.svg";
 import AzureLogo from "../../assets/azureLogo.svg";
+import AzurePipelineLogo from "../../assets/azurePipelineLogo.svg";
 
 export default function Skills() {
   const { t } = useTranslation();
@@ -46,7 +47,7 @@ export default function Skills() {
 
   const ciCdSkills = [
     { icon: "fa-brands fa-github", label: "GitHub Actions" },
-    { icon: "fa-brands fa-gitlab", label: "GitLab CI" },
+    { icon: <img src={AzurePipelineLogo} alt="Azure Pipelines" />, label: "Azure Pipelines" },
     { icon: <img src={AnsibleLogo} alt="Ansible" />, label: "Ansible" },
     { icon: "fa-brands fa-python", label: "Python Scripting" },
     { icon: "fa-solid fa-terminal", label: "PowerShell Scripting" },
