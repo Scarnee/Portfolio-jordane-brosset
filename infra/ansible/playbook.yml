@@ -6,7 +6,7 @@
     project_dir: /home/ubuntu/saas-platform
     docker_image_name: react-frontend
     container_name: react-frontend-container
-    
+
   tasks:
     - name: Cloner le projet depuis GitHub
       git:
@@ -15,9 +15,16 @@
         version: main
         force: yes
 
+    - name: Stop any running apt processes
+      shell: |
+        killall -q apt apt-get || true
+      ignore_errors: true
+
     - name: Update apt cache
       apt:
         update_cache: yes
+        cache_valid_time: 3600
+      lock_timeout: 120
 
     - name: Install required base packages
       apt:
