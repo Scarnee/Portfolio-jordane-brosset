@@ -25,3 +25,11 @@ services:
     ports:
       - "9100:9100"
     restart: unless-stopped
+
+  nginx-exporter:
+    image: nginx/nginx-prometheus-exporter:latest
+    container_name: nginx-exporter
+    command:
+      - -nginx.scrape-uri=http://host.docker.internal/nginx_status
+    ports:
+      - "9113:9113"
