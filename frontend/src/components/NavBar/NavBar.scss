@@ -1,4 +1,5 @@
-@import "../../utils/names_variables.scss";
+@use "../../utils/names_variables.scss" as *;
+@use "sass:color";
 
 nav {
     position: fixed;
@@ -20,7 +21,7 @@ nav {
     backdrop-filter: blur(2px);
 
     a {
-        color: lighten($fifth-color, 10%);
+        color: color.adjust($fifth-color, $lightness: 10%);
         font-size: 35px;
         border: solid 2px transparent;
         border-bottom: none;
@@ -53,7 +54,7 @@ nav {
         }
 
         &:hover {
-            color: lighten($third-color, 10%);
+            color: color.adjust($third-color, $lightness: 10%);
             background: rgba(255, 255, 255, 0.1);
             transform: translateY(-2px);
 
