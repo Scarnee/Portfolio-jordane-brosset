@@ -36,7 +36,7 @@ services:
     image: nginx/nginx-prometheus-exporter:latest
     container_name: nginx-exporter
     command:
-      - -nginx.scrape-uri=http://host.docker.internal/nginx_status
+      - -nginx.scrape-uri=http://172.17.0.1/nginx_status
     ports:
       - "9113:9113"
 
