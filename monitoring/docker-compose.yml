@@ -39,3 +39,6 @@ services:
       - -nginx.scrape-uri=http://host.docker.internal/nginx_status
     ports:
       - "9113:9113"
+
+volumes:
+  grafana-storage:
