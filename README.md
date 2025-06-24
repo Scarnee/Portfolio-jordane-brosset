@@ -8,6 +8,7 @@ Ce dépôt contient le code source et l’infrastructure du site portfolio perso
 - **Contact** : Intégration EmailJS pour contact direct.
 - **DevOps** : Frontend dockerisé, configuration Nginx, playbook Ansible pour le déploiement, et Terraform pour la gestion de l’infrastructure AWS.
 - **CI/CD** : Workflow GitHub Actions pour le déploiement automatisé sur AWS EC2.
+- **Monitoring** : Monitoring de l’application avec Prometheus et Grafana.
 
 ## Structure du projet
 
@@ -17,6 +18,9 @@ Ce dépôt contient le code source et l’infrastructure du site portfolio perso
 ├── infra/
 │   ├── ansible/      # Playbook & rôles Ansible pour le provisioning/déploiement
 │   └── terraform/    # Scripts Terraform pour la création d’EC2 AWS
+├── monitoring/       # Configuration Prometheus et Grafana
+│   ├── grafana/      # Configuration Grafana
+│   └── prometheus/   # Configuration Prometheus
 ├── docker/           # Configuration Nginx pour Docker
 ├── .github/          # Workflow GitHub Actions
 └── README.md
