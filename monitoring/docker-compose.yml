@@ -22,7 +22,6 @@ services:
       - ./grafana/provisioning/datasources/datasources.yml:/etc/grafana/provisioning/datasources/datasources.yml
       - ./grafana/dashboards:/var/lib/grafana/dashboards
       - ./grafana/provisioning/dashboards/dashboards.yml:/etc/grafana/provisioning/dashboards/dashboards.yml     
-      - ./grafana/provisioning/alerting/alerting.yml:/etc/grafana/provisioning/alerting/alerting.yml
       - grafana-storage:/var/lib/grafana
 
   node-exporter:
