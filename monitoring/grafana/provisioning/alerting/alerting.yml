@@ -1,0 +1,33 @@
+apiVersion: 1
+groups:
+  - name: example-alert-group
+    folder: ''
+    interval: 1m
+    rules:
+      - uid: cpu-usage
+        title: High CPU usage
+        condition: B
+        data:
+          - refId: A
+            datasourceUid: prometheus
+            model:
+              expr: avg(rate(node_cpu_seconds_total{mode="user"}[1m])) > 0.5
+              interval: ""
+              intervalMs: 1000
+              maxDataPoints: 43200
+              refId: A
+          - refId: B
+            datasourceUid: prometheus
+            model:
+              expr: A > 0.5
+              interval: ""
+              intervalMs: 1000
+              maxDataPoints: 43200
+              refId: B
+        noDataState: NoData
+        execErrState: Alerting
+        for: 1m
+        annotations:
+          summary: High CPU usage detected
+        labels:
+          severity: critical
