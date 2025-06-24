@@ -1,4 +1,4 @@
-# 🌐 Portfolio DevOps & Web - Jordane Brosset
+# Portfolio DevOps & Web - Jordane Brosset
 <p align="center">
   <img src="https://github.com/Scarnee/saas-platform/actions/workflows/ci.yml/badge.svg" alt="CI/CD">
   <img src="https://img.shields.io/badge/Made%20with-React-blue" alt="Made with React">
@@ -11,7 +11,7 @@ Ce projet est le portfolio personnel de **Jordane Brosset**, développé pour me
 Le site est **multilingue, responsive**, entièrement **dockerisé** et **déployé automatiquement sur AWS EC2** via GitHub Actions.
 
 
-## 🔗 Démo
+## Démo
 
 👉 [Accéder au site en ligne](https://jordane-brosset.com)
 
@@ -50,14 +50,14 @@ Le site est **multilingue, responsive**, entièrement **dockerisé** et **déplo
 
 - À chaque push sur `main`, [GitHub Actions](.github/workflows/ci.yml) provisionne et déploie automatiquement sur EC2 via Ansible.
 
-## 👤 Auteur
+## Auteur
 
 [Jordane Brosset](https://github.com/Scarnee)  
 Développeur Web & Ingénieur DevOps  
 📧 jordane.brosset@gmail.com  
 🌐 [jordane-brosset.com](https://jordane-brosset.com)
 
-## 📄 Licence
+## Licence
 
 Ce projet est un portfolio personnel, fourni à titre de démonstration.  
 Toute réutilisation ou reproduction du code est interdite sans autorisation explicite de l’auteur.
