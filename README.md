@@ -37,11 +37,12 @@ Le site est **multilingue, responsive**, entièrement **dockerisé** et **déplo
 ├── infra/
 │   ├── ansible/      # Playbook & rôles Ansible pour le provisioning/déploiement
 │   └── terraform/    # Scripts Terraform pour la création d’EC2 AWS
-├── monitoring/       # Configuration Prometheus et Grafana
-│   ├── grafana/      # Configuration Grafana
-│   └── prometheus/   # Configuration Prometheus
-├── docker/           # Configuration Nginx pour Docker
-├── .github/          # Workflow GitHub Actions
+├── monitoring/       # Stack Prometheus, Grafana, exporters, dashboards, alerting
+│   ├── grafana/
+│   └── prometheus/
+├── nginx/            # Dockerfile et configuration Nginx (reverse-proxy, SSL)
+├── docker-compose.yml# Orchestration multi-conteneurs (frontend, nginx, etc.)
+├── .github/          # Workflows GitHub Actions (CI/CD)
 └── README.md
 ```
 
