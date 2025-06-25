@@ -1,0 +1,27 @@
+version: "3.8"
+
+services:
+  frontend:
+    build:
+      context: ./frontend
+    container_name: frontend
+    expose:
+      - "80"
+    networks:
+      - web
+
+  reverse-proxy:
+    build:
+      context: ./nginx
+    container_name: reverse-proxy
+    ports:
+      - "80:80"
+      - "443:443"
+    depends_on:
+      - frontend
+    networks:
+      - web
+
+networks:
+  web:
+    driver: bridge

@@ -83,13 +83,16 @@
       shell: docker rm {{ container_name }}
       ignore_errors: true
 
-    - name: Construire l'image Docker
-      command: docker build -t {{ docker_image_name }} .
+    - name: Arrêter la stack frontend + reverse proxy (docker-compose down)
+      shell: docker compose down
       args:
-        chdir: "{{ project_dir }}/frontend"
+        chdir: "{{ project_dir }}"
+      ignore_errors: true
 
-    - name: Lancer le conteneur Docker
-      command: docker run -d -p 5173:80 --name react-frontend-container {{ docker_image_name }}
+    - name: Démarrer la stack frontend + reverse proxy
+      shell: docker compose up -d --build
+      args:
+        chdir: "{{ project_dir }}"
 
     - name: Arrêter la stack monitoring (docker-compose down)
       shell: docker compose down
