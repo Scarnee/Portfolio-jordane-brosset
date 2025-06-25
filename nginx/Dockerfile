@@ -1,14 +1,10 @@
 FROM nginx:alpine
 
-# Copie des configurations
+# Copie de la configuration principale
 COPY nginx.conf /etc/nginx/nginx.conf
+
+# Copie des fichiers SSL
 COPY ssl/ /etc/nginx/ssl/
+
+# Copie des configurations de site
 COPY conf.d/ /etc/nginx/conf.d/
-
-# Créez la structure de dossiers nécessaire
-RUN mkdir -p /etc/letsencrypt/live/jordane-brosset.com && \
-    mkdir -p /etc/letsencrypt/archive/jordane-brosset.com
-
-# Copiez les fichiers de certificats (remplacez par vos vrais fichiers)
-COPY certs/live/jordane-brosset.com/ /etc/letsencrypt/live/jordane-brosset.com/
-COPY certs/archive/jordane-brosset.com/ /etc/letsencrypt/archive/jordane-brosset.com/
