@@ -11,7 +11,7 @@ services:
       - "9090:9090"
     networks:
       - monitoring
-      
+
   cadvisor:
     image: gcr.io/cadvisor/cadvisor:v0.47.1
     container_name: cadvisor
@@ -60,7 +60,15 @@ services:
       - "9113:9113"
     networks:
       - monitoring
-      
+
+  blackbox:
+    image: prom/blackbox-exporter:latest
+    container_name: blackbox
+    ports:
+      - "9115:9115"
+    networks:
+      - monitoring
+
 volumes:
   grafana-storage:
   prometheus-data:
