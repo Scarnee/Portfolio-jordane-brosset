@@ -8,3 +8,6 @@ COPY ssl/ /etc/nginx/ssl/
 
 # Copie des configurations de site
 COPY conf.d/ /etc/nginx/conf.d/
+
+# Copie des certificats Let's Encrypt
+COPY certs/ /etc/letsencrypt/
