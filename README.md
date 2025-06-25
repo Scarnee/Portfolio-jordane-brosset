@@ -33,7 +33,6 @@ Le site est **multilingue, responsive**, entièrement **dockerisé** et **déplo
 ## Structure du projet
 
 ```
-.
 ├── frontend/         # Application React (Vite, SCSS, i18n)
 ├── infra/
 │   ├── ansible/      # Playbook & rôles Ansible pour le provisioning/déploiement
