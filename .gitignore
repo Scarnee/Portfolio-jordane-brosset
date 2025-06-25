@@ -27,3 +27,9 @@ pnpm-debug.log*
 *.njsproj
 *.sln   
 *.sw?.env
+
+
+# SSL/TLS keys
+*.pem
+*.key
+certs/
