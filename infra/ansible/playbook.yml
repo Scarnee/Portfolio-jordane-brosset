@@ -77,11 +77,13 @@
 
     - name: Stop existing container (if running)
       shell: docker stop {{ container_name }}
-      ignore_errors: true
+      register: stop_result
+      failed_when: false
 
     - name: Remove existing container (if exists)
       shell: docker rm {{ container_name }}
-      ignore_errors: true
+      register: rm_result
+      failed_when: false
 
     - name: Arrêter la stack frontend + reverse proxy (docker-compose down)
       shell: docker compose down
