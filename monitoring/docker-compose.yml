@@ -41,8 +41,10 @@ services:
       - ./grafana/provisioning/dashboards/dashboards.yml:/etc/grafana/provisioning/dashboards/dashboards.yml     
       - grafana-storage:/var/lib/grafana
     networks:
-      - monitoring
-      - web
+      web:
+        aliases:
+          - grafana
+      monitoring:
 
   node-exporter:
     image: prom/node-exporter
