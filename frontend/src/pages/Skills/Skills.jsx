@@ -13,6 +13,8 @@ import AnsibleLogo from "../../assets/ansibleLogo.svg";
 import MongoLogo from "../../assets/mongoLogo.svg";
 import AzureLogo from "../../assets/azureLogo.svg";
 import AzurePipelineLogo from "../../assets/azurePipelineLogo.svg";
+import GrafanaLogo from "../../assets/grafanaLogo.svg";
+import PrometheusLogo from "../../assets/prometheusLogo.svg";
 
 export default function Skills() {
   const { t } = useTranslation();
@@ -41,8 +43,7 @@ export default function Skills() {
     {
       icon: <img src={KubernetesLogo} alt="Kubernetes" />,
       label: "Kubernetes",
-    },
-    { icon: <img src={DynaLogo} alt="Dynatrace" />, label: "Dynatrace" },
+    }
   ];
 
   const ciCdSkills = [
@@ -53,6 +54,11 @@ export default function Skills() {
     { icon: "fa-solid fa-terminal", label: "PowerShell Scripting" },
   ];
 
+  const monitoringSkills = [
+    { icon: <img src={DynaLogo} alt="Dynatrace" />, label: "Dynatrace" },
+    { icon: <img src={GrafanaLogo} alt="Grafana" />, label: "Grafana" },
+    { icon: <img src={PrometheusLogo} alt="Prometheus" />, label: "Prometheus" },
+  ];
   const softSkills = [
     { icon: "fa-solid fa-lightbulb", label: t("problemSolving") },
     { icon: "fa-solid fa-clock", label: t("productivity") },
@@ -103,6 +109,11 @@ export default function Skills() {
         <div className="section">
           <h2>CI/CD & Automation</h2>
           <div className="iconList">{renderSkills(ciCdSkills)}</div>
+        </div>
+
+        <div className="section">
+          <h2>Monitoring</h2>
+          <div className="iconList">{renderSkills(monitoringSkills)}</div>
         </div>
 
         <div className="section">

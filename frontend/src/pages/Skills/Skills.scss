@@ -160,23 +160,26 @@
     flex-direction: column !important;
     justify-content: space-evenly !important;
     p {
-      font-size: 10px !important;
+      font-size: 12px !important;
     }
     ul {
       gap: 10px !important;
     }
     li {
-      font-size: 10px !important;
+      font-size: 12px !important;
       justify-content: start !important;
+      i{
+        font-size: 14px !important;
+      }
     }
     h2 {
-      font-size: 12px !important;
+      font-size: 14px !important;
     }
     i {
-      font-size: 12px !important;
+      font-size: 24px !important;
     }
     img {
-      height: 12px !important;
+      height: 24px !important;
     }
     .topSkills {
       overflow-y: visible !important;
