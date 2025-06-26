@@ -13,8 +13,8 @@ import AnsibleLogo from "../../assets/ansibleLogo.svg";
 import MongoLogo from "../../assets/mongoLogo.svg";
 import AzureLogo from "../../assets/azureLogo.svg";
 import AzurePipelineLogo from "../../assets/azurePipelineLogo.svg";
-import GrafanaLogo from "../../assets/grafanaLogo.svg";
-import PrometheusLogo from "../../assets/prometheusLogo.svg";
+import GrafanaLogo from "../../assets/GrafanaLogo.svg";
+import PrometheusLogo from "../../assets/PrometheusLogo.svg";
 
 export default function Skills() {
   const { t } = useTranslation();
