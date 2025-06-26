@@ -1,4 +1,5 @@
-@import '../../utils/names_variables.scss';
+@use "../../utils/names_variables" as *;
+
 .mainProjects{
     height: 75% !important;
     width: 80%;

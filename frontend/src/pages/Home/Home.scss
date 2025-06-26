@@ -1,4 +1,4 @@
-@import "../../utils/names_variables.scss";
+@use "../../utils/names_variables" as *;
 
 .mainHome {
     width: 100%;

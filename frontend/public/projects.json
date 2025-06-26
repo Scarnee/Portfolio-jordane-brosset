@@ -35,7 +35,7 @@
     "id": "fe589446",
     "title": "This Website !",
     "URL": "https://github.com/Scarnee/saas-platform",
-    "tags": ["AWS", "Docker", "Ansible"],
+    "tags": ["AWS", "Docker", "Ansible", "Grafana"],
     "imageURL": "static/img/projectImages/website.webp",
     "description": "Project focusing on cloud infrastructure and automation"
   }
