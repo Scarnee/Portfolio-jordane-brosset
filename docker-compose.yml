@@ -31,6 +31,6 @@ services:
 
 networks:
   web:
-    driver: external
+    external: true
   frontend:
     driver: bridge
