@@ -19,7 +19,7 @@ services:
       - ./nginx/ssl:/etc/nginx/ssl:ro
       - ./nginx/conf.d:/etc/nginx/conf.d:ro
     ports:
-      - "8080:80"  # Port différent pour éviter les conflits
+      - "8082:80"  # Port différent pour éviter les conflits
       - "8443:443" # Port différent pour éviter les conflits
     depends_on:
       - frontend-test
