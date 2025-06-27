@@ -11,20 +11,21 @@ services:
     volumes:
       - ./default.test.conf:/etc/nginx/conf.d/default.conf:ro
 
-  reverse-proxy:
+  reverse-proxy-test:
     image: saas-platform-reverse-proxy
-    container_name: reverse-proxy
+    container_name: reverse-proxy-test
     volumes:
       - ./nginx/nginx.conf:/etc/nginx/nginx.conf:ro
       - ./nginx/ssl:/etc/nginx/ssl:ro
       - ./nginx/conf.d:/etc/nginx/conf.d:ro
     ports:
-      - "80:80"
-      - "443:443"
+      - "8080:80"  # Port différent pour éviter les conflits
+      - "8443:443" # Port différent pour éviter les conflits
     depends_on:
       - frontend-test
-
+    networks:
+      - saas-platform-network
 
 networks:
   saas-platform-network:
-    driver: bridge
+    external: true
