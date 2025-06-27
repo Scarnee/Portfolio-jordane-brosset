@@ -21,7 +21,7 @@ services:
       - frontend
     volumes:
       - ./nginx/nginx.conf:/etc/nginx/nginx.conf
-      - ./nginx/conf.d:/etc/nginx/conf.d
+      - ./nginx/conf.d/prod:/etc/nginx/conf.d:ro
       - /etc/letsencrypt/live/jordane-brosset.com/fullchain.pem:/etc/letsencrypt/live/jordane-brosset.com/fullchain.pem:ro
       - /etc/letsencrypt/live/jordane-brosset.com/privkey.pem:/etc/letsencrypt/live/jordane-brosset.com/privkey.pem:ro
       - ./nginx/ssl/options-ssl-nginx.conf:/etc/nginx/ssl/options-ssl-nginx.conf:ro
