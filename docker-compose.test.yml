@@ -1,3 +1,4 @@
+version: '3'
 services:
   frontend-test:
     build:
@@ -7,6 +8,24 @@ services:
     environment:
       - NODE_ENV=test
     ports:
-      - "8081:80" # différent de la prod
+      - "8081:80"
     volumes:
       - ./default.test.conf:/etc/nginx/conf.d/default.conf:ro
+    networks:
+      - saas-platform-network
+
+  reverse-proxy:
+    image: saas-platform-reverse-proxy
+    container_name: reverse-proxy
+    networks:
+      - saas-platform-network
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./nginx.conf:/etc/nginx/nginx.conf
+      - ./ssl:/etc/nginx/ssl
+
+networks:
+  saas-platform-network:
+    driver: bridge
