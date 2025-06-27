@@ -3,9 +3,11 @@
   become: true
 
   vars:
+    env: "{{ env | default('prod') }}"
     project_dir: /home/ubuntu/saas-platform
     docker_image_name: react-frontend
-    container_name: react-frontend-container
+    container_name: "{{ 'react-frontend-container-test' if env == 'test' else 'react-frontend-container' }}"
+    compose_file: "{{ 'docker-compose.test.yml' if env == 'test' else 'docker-compose.yml' }}"
 
   tasks:
     - name: Cloner le projet depuis GitHub
@@ -85,14 +87,14 @@
       register: rm_result
       failed_when: false
 
-    - name: Arrêter la stack frontend + reverse proxy (docker-compose down)
-      shell: docker compose down
+    - name: Arrêter la stack frontend + reverse proxy
+      shell: docker compose -f {{ compose_file }} down
       args:
         chdir: "{{ project_dir }}"
       ignore_errors: true
 
     - name: Démarrer la stack frontend + reverse proxy
-      shell: docker compose up -d --build
+      shell: docker compose -f {{ compose_file }} up -d --build
       args:
         chdir: "{{ project_dir }}"
 

@@ -1,0 +1,12 @@
+services:
+  frontend-test:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: frontend-test
+    environment:
+      - NODE_ENV=test
+    ports:
+      - "8081:80" # différent de la prod
+    volumes:
+      - ./default.test.conf:/etc/nginx/conf.d/default.conf:ro
