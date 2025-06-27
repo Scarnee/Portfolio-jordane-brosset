@@ -29,9 +29,12 @@ services:
     networks:
       - frontend
       - web
+      - saas-platform-network
 
 networks:
   web:
     external: true
   frontend:
     driver: bridge
+  saas-platform-network:
+    external: true
