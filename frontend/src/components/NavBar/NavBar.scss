@@ -126,3 +126,20 @@ nav {
         }
     }
 }
+
+@include laptop {
+    nav {
+        grid-template-columns: repeat(4, 1fr);
+        gap: 10px;
+
+        a {
+            font-size: 24px !important;
+            height: 90%;
+
+            &.active {
+                font-size: 26px;
+                height: 100%;
+            }
+        }
+    }
+}

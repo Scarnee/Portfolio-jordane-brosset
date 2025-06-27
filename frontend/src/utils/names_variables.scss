@@ -1,15 +1,22 @@
-
-
-$first-color : #191E29;
-$second-color : #132d46;
-$third-color : #01c380;
-$fourth-color : #696e79;
-$fifth-color : #ffffff;
+$first-color: #191e29;
+$second-color: #132d46;
+$third-color: #01c380;
+$fourth-color: #696e79;
+$fifth-color: #ffffff;
 
 @mixin phone {
-    @media (max-width: 576px){ @content;}
+  @media (max-width: 576px) {
+    @content;
+  }
 }
 
 @mixin tablet {
-    @media (min-width: 577px) and (max-width:1020px){ @content;}
+  @media (min-width: 577px) and (max-width: 991px) {
+    @content;
+  }
+}
+@mixin laptop {
+  @media (min-width: 992px) and (max-width: 1600px) {
+    @content;
+  }
 }

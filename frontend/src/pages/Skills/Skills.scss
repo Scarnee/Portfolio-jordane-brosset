@@ -249,3 +249,48 @@
     }
   }
 }
+
+@include laptop {
+  .mainSkills {
+    .topSkills {
+      flex-direction: row !important;
+      gap: 20px !important;
+      flex-wrap: nowrap !important;
+    }
+    p {
+      font-size: 14px !important;
+    }
+    ul {
+      gap: 12px !important;
+    }
+    li {
+      font-size: 12px !important;
+      justify-content: start !important;
+    }
+    h2 {
+      font-size: 16px !important;
+    }
+    i {
+      font-size: 16px !important;
+    }
+    img {
+      height: 20px !important;
+    }
+    .topSkills {
+      justify-content: space-evenly;
+    }
+    .bottomSkills {
+      flex-direction: row;
+      gap: 10px;
+      justify-content: center;
+      align-items: center;
+      max-height: 10%;
+      margin-bottom: 15px;
+    }
+    .section {
+      flex: 1 1 20% !important;
+      min-width: 0px !important;
+      padding: 8px !important;
+    }
+  }
+}

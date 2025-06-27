@@ -60,3 +60,15 @@
         }
     }
 }
+
+@include laptop{
+    .mainAbout{
+        h1,
+        .aboutName {
+            font-size: 35px !important;
+        }
+        h2 {
+            font-size: 20px;
+        }
+    }
+}
