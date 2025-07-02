@@ -1,42 +1,42 @@
 [
-  {
-    "id": "c67ab8a7",
-    "title": "Nina Carducci",
-    "URL": "https://github.com/Scarnee/nina_carducci_projetOC",
-    "tags": ["SEO"],
-    "imageURL": "static/img/projectImages/NINACARDUCCI.webp",
-    "description": "Project focusing on optimization : SEO, Accessiblity, Performance"
-  },
-  {
-    "id": "b9123946",
-    "title": "Sophie Bluel",
-    "URL": "https://github.com/Scarnee/Portfolio-architecte-sophie-bluel",
-    "tags": ["Front-End", "Javascript"],
-    "imageURL": "static/img/projectImages/SOPHIEBLUEL.webp",
-    "description": "Project focusing on Javascript and requests to APIs"
-  },
-  {
-    "id": "cf514862",
-    "title": "Kasa",
-    "URL": "https://github.com/Scarnee/Kasa_OC",
-    "tags": ["Front-End", "React"],
-    "imageURL": "static/img/projectImages/KASA.webp",
-    "description": "Project focusing on React framework"
-  },
-  {
-    "id": "dr584246",
-    "title": "Mon Vieux Grimoire",
-    "URL": "https://github.com/Scarnee/Mon-Vieux-Grimoire-OC7",
-    "tags": ["Back-End", "Express", "MongoDB"],
-    "imageURL": "static/img/projectImages/MONVIEUXGRIMOIRE.webp",
-    "description": "Project focusing on back-end coding, database access"
-  },
-  {
-    "id": "fe589446",
-    "title": "This Website !",
-    "URL": "https://github.com/Scarnee/saas-platform",
-    "tags": ["AWS", "Docker", "Ansible", "Grafana"],
-    "imageURL": "static/img/projectImages/website.webp",
-    "description": "Project focusing on cloud infrastructure and automation"
-  }
+    {
+        "id": "c67ab8a7",
+        "title": "Nina Carducci",
+        "URL": "https://github.com/Scarnee/nina_carducci_projetOC",
+        "tags": ["SEO"],
+        "imageURL": "static/img/projectImages/NINACARDUCCI.webp",
+        "description": "Accessiblity, Performance"
+    },
+    {
+        "id": "b9123946",
+        "title": "Sophie Bluel",
+        "URL": "https://github.com/Scarnee/Portfolio-architecte-sophie-bluel",
+        "tags": ["Javascript", "APIs"],
+        "imageURL": "static/img/projectImages/SOPHIEBLUEL.webp",
+        "description": "Front-end coding"
+    },
+    {
+        "id": "cf514862",
+        "title": "Kasa",
+        "URL": "https://github.com/Scarnee/Kasa_OC",
+        "tags": ["React"],
+        "imageURL": "static/img/projectImages/KASA.webp",
+        "description": "Front-end coding with frameworks"
+    },
+    {
+        "id": "dr584246",
+        "title": "Mon Vieux Grimoire",
+        "URL": "https://github.com/Scarnee/Mon-Vieux-Grimoire-OC7",
+        "tags": ["Express", "MongoDB"],
+        "imageURL": "static/img/projectImages/MONVIEUXGRIMOIRE.webp",
+        "description": "Back-end coding, database access"
+    },
+    {
+        "id": "fe589446",
+        "title": "This Website !",
+        "URL": "https://github.com/Scarnee/saas-platform",
+        "tags": ["AWS", "Docker", "Ansible", "Grafana"],
+        "imageURL": "static/img/projectImages/website.webp",
+        "description": "Cloud infrastructure, Automation"
+    }
 ]
