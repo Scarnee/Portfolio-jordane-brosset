@@ -7,29 +7,31 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
+
     .homeContent {
         width: 80%;
         height: 80%;
         display: flex;
         align-items: center;
         justify-content: space-evenly;
-        h1{
+        h1 {
             color: $third-color;
         }
-        .homeDescription{
+        .homeDescription {
             display: flex;
             flex-direction: column;
         }
         .profilePicture {
+            max-width: 30%;
             border-radius: 25px;
             box-shadow: 0px 0px 15px 5px $second-color;
-          }
+        }
     }
-    @include phone{
-        .mainHome{
+    @include phone {
+        .mainHome {
             flex-direction: column;
         }
-        .homeContent{
+        .homeContent {
             flex-direction: column;
             h1 {
                 font-size: 20px;
@@ -38,28 +40,27 @@
                 font-size: 15px;
             }
         }
-        img{
-            width: 100%;
+        .profilePicture {
+            max-width: 100% !important;
         }
     }
-    @include tablet{
-        .mainHome{
+    @include tablet {
+        .mainHome {
             flex-direction: column;
         }
-        .homeContent{
+        .homeContent {
             flex-direction: row;
         }
-        .homeDescription{
-            h1{
+        .homeDescription {
+            h1 {
                 font-size: 50px;
             }
-            h2{
+            h2 {
                 font-size: 35px;
             }
         }
-        img{
+        img {
             width: 50%;
         }
     }
-    
 }

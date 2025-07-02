@@ -8,13 +8,13 @@
     align-items: center;
     gap: 10%;
     img {
-        width: 45%; 
+        width: 45%;
         object-fit: cover;
         border-radius: 25px;
-        object-position:  100%;
-        background: rgba(0,0,0,0.5);
+        object-position: 100%;
+        background: rgba(0, 0, 0, 0.5);
         box-shadow: 0px 0px 15px 5px $second-color;
-    };
+    }
     .textAbout {
         .aboutName {
             color: $third-color;
@@ -49,9 +49,9 @@
         }
     }
 }
-@include tablet{
-    .mainAbout{
-         h1,
+@include tablet {
+    .mainAbout {
+        h1,
         .aboutName {
             font-size: 30px !important;
         }
@@ -61,8 +61,8 @@
     }
 }
 
-@include laptop{
-    .mainAbout{
+@include laptop {
+    .mainAbout {
         h1,
         .aboutName {
             font-size: 35px !important;

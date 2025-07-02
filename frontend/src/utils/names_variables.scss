@@ -1,22 +1,22 @@
-$first-color: #191e29;
-$second-color: #132d46;
-$third-color: #01c380;
-$fourth-color: #696e79;
-$fifth-color: #ffffff;
+$first-color: #2b1d0e; // Chocolat foncé, pour les fonds profonds
+$second-color: #3b2f1b; // Brun-noisette, pour les encadrés ou menus
+$third-color: #ffa94d; // Orange doux et lumineux (rappel de ton pull)
+$fourth-color: #f5deb3; // Beige clair, pour les fonds ou contrastes doux
+$fifth-color: #ffffff; // Blanc pur, pour le texte ou les éléments clairs
 
 @mixin phone {
-  @media (max-width: 576px) {
-    @content;
-  }
+    @media (max-width: 576px) {
+        @content;
+    }
 }
 
 @mixin tablet {
-  @media (min-width: 577px) and (max-width: 991px) {
-    @content;
-  }
+    @media (min-width: 577px) and (max-width: 991px) {
+        @content;
+    }
 }
 @mixin laptop {
-  @media (min-width: 992px) and (max-width: 1600px) {
-    @content;
-  }
+    @media (min-width: 992px) and (max-width: 1600px) {
+        @content;
+    }
 }
