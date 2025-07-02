@@ -1,19 +1,20 @@
 @use "../../utils/names_variables" as *;
 
-.mainProjects{
-    height: 75% !important;
+.mainProjects {
+    height: 80% !important;
     width: 80%;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     gap: 5%;
     padding: 2.5%;
-    box-sizing: border-box; 
+    box-sizing: border-box;
     -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box; 
+    -moz-box-sizing: border-box;
     overflow: hidden;
 }
-@include phone{
-    .mainProjects{
+@include phone {
+    .mainProjects {
+        height: 78% !important;
         overflow: hidden;
         overflow-y: scroll;
         grid-template-columns: 1fr;

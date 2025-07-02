@@ -10,5 +10,12 @@
         height: 100%;
         width: 100%;
         align-items: center;
+
+        .page-content {
+            flex: 1;
+            width: 100%;
+            position: relative; // utile si tu as des éléments absolus dans les pages
+            overflow-x: hidden;
+        }
     }
 }

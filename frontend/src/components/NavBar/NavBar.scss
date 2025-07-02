@@ -19,7 +19,8 @@ nav {
     border-top-left-radius: 12px;
     border-top-right-radius: 12px;
     backdrop-filter: blur(2px);
-
+    backface-visibility: hidden;
+    will-change: transform;
     a {
         color: color.adjust($fifth-color, $lightness: 10%);
         font-size: 35px;
@@ -41,7 +42,7 @@ nav {
         overflow: hidden;
 
         &::before {
-            content: '';
+            content: "";
             position: absolute;
             bottom: 0;
             left: 0;
@@ -98,7 +99,8 @@ nav {
                 display: none;
             }
 
-            &:hover, &.active {
+            &:hover,
+            &.active {
                 font-size: 18px;
                 border-color: $third-color;
                 height: 90%;

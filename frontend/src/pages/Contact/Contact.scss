@@ -2,26 +2,28 @@
 
 .mainContact {
     display: flex;
-    height: 75%;
+    height: 80%;
     width: 80%;
     justify-content: center;
     align-items: center;
     gap: 10%;
     img {
-        width: 45%; 
+        width: 45%;
         object-fit: cover;
         border-radius: 25px;
-        object-position:  100%;
-        background: rgba(0,0,0,0.5);
+        object-position: 100%;
+        background: rgba(0, 0, 0, 0.5);
         box-shadow: 0px 0px 15px 5px $second-color;
-    };
-    input, textarea{
+    }
+    input,
+    textarea {
         font-family: "Orbitron", sans-serif;
         font-optical-sizing: auto;
         font-style: normal;
         resize: none;
     }
-    textarea:focus, input:focus{
+    textarea:focus,
+    input:focus {
         outline: none;
     }
     .contactRight {
@@ -33,16 +35,16 @@
         h1 {
             color: $third-color;
         }
-        .socials{
+        .socials {
             width: 50%;
             display: flex;
             justify-content: space-evenly;
         }
-        i{
+        i {
             color: $fifth-color;
             font-size: 35px;
         }
-        i:hover{
+        i:hover {
             color: $third-color;
         }
         .contactForm {
@@ -88,37 +90,39 @@
                 font-size: 25px;
                 padding: 5px 10px 5px 10px;
             }
-            button:hover{
+            button:hover {
                 background-color: $third-color;
             }
         }
     }
 }
-@include phone{
-    .mainContact{
+@include phone {
+    .mainContact {
         flex-direction: column-reverse;
-        .contactRight{
+        .contactRight {
             width: 100%;
         }
-        img{
+        img {
             display: none;
         }
-        h1, button {
+        h1,
+        button {
             font-size: 20px !important;
         }
-        h2, form {
+        h2,
+        form {
             font-size: 14px;
         }
-        button:hover{
+        button:hover {
             background-color: transparent;
             color: $fifth-color;
         }
     }
 }
-@include tablet{
-    .mainContact{
+@include tablet {
+    .mainContact {
         flex-direction: column-reverse;
-        .contactRight{
+        .contactRight {
             width: 100%;
         }
         img {
