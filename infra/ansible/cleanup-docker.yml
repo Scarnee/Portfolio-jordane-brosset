@@ -1,0 +1,64 @@
+- name: Cleanup Docker Containers and Images
+  hosts: all
+  become: true
+
+  vars:
+      project_dir: /home/ubuntu/saas-platform
+
+  tasks:
+      # Vérifier si Docker est installé
+      - name: Vérifier si Docker est installé
+        shell: docker --version
+        register: docker_installed
+        failed_when: false
+        changed_when: false
+
+      # Installer Docker et Docker Compose si nécessaire
+      - name: Installer Docker et Docker Compose si nécessaire
+        apt:
+            name:
+                - docker-ce
+                - docker-ce-cli
+                - containerd.io
+                - docker-compose-plugin
+            state: present
+        when: docker_installed.rc != 0
+
+      # Démarrer Docker si nécessaire
+      - name: Activer et démarrer le service Docker
+        systemd:
+            name: docker
+            state: started
+            enabled: yes
+
+      # Ajouter l'utilisateur Ubuntu au groupe Docker si nécessaire
+      - name: Ajouter l'utilisateur Ubuntu au groupe Docker
+        user:
+            name: ubuntu
+            groups: docker
+            append: yes
+
+      # Nettoyage des conteneurs Docker arrêtés
+      - name: Supprimer tous les conteneurs arrêtés
+        shell: docker container prune -f
+        ignore_errors: true
+
+      # Nettoyage des images Docker non utilisées
+      - name: Supprimer toutes les images Docker non utilisées
+        shell: docker image prune -f
+        ignore_errors: true
+
+      # Nettoyage des volumes Docker non utilisés
+      - name: Supprimer tous les volumes Docker non utilisés
+        shell: docker volume prune -f
+        ignore_errors: true
+
+      # Nettoyage des réseaux Docker non utilisés
+      - name: Supprimer tous les réseaux Docker non utilisés
+        shell: docker network prune -f
+        ignore_errors: true
+
+      # Nettoyage complet du système Docker (conteneurs, images, volumes, réseaux)
+      - name: Nettoyage complet du système Docker
+        shell: docker system prune -f
+        ignore_errors: true

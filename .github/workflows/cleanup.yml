@@ -1,0 +1,40 @@
+name: Cleaning Docker Containers and Images
+
+on:
+    schedule:
+        - cron: "0 3 * * 0" # Tous les dimanches à 3h du matin
+    workflow_dispatch: # Aussi exécutable manuellement
+
+jobs:
+    cleanup:
+        name: Clean Docker resources
+        runs-on: ubuntu-latest
+
+        steps:
+            - name: Checkout code
+              uses: actions/checkout@v3
+
+            - name: Set up Python
+              uses: actions/setup-python@v4
+              with:
+                  python-version: "3.x"
+
+            - name: Install Ansible
+              run: |
+                  python -m pip install --upgrade pip
+                  pip install ansible
+
+            - name: Create SSH key
+              run: |
+                  mkdir -p ~/.ssh
+                  echo "${{ secrets.EC2_SSH_PRIVATE_KEY }}" > ~/.ssh/id_rsa
+                  chmod 600 ~/.ssh/id_rsa
+                  ssh-keyscan -H 13.61.141.29 >> ~/.ssh/known_hosts
+
+            - name: Echo environment
+              run: echo "Deploying to ${{ inputs.environment }} environment"
+
+            - name: Run Ansible Playbook
+              run: |
+                  ansible-playbook infra/ansible/cleanup-docker.yml -i infra/ansible/inventory.ini \
+                    --limit ${{ inputs.environment }} --extra-vars "env=${{ inputs.environment }}"

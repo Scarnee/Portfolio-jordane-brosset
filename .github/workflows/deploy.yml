@@ -43,6 +43,6 @@ jobs:
 
       - name: Run Ansible Playbook
         run: |
-          ansible-playbook infra/ansible/playbook.yml -i infra/ansible/inventory.ini \
+          ansible-playbook infra/ansible/deploy-app.yml -i infra/ansible/inventory.ini \
             --limit ${{ inputs.environment }} --extra-vars "env=${{ inputs.environment }}"
 
