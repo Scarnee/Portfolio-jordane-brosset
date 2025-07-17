@@ -1,0 +1,15 @@
+apiVersion: 1
+contactPoints:
+  - orgId: 1
+    name: AWS SNS
+    receivers:
+      - uid: aes6yogdio740a
+        type: sns
+        settings:
+          api_url: https://sns.eu-north-1.amazonaws.com
+          sigv4:
+            access_key: ${AWS_ACCESS_KEY_ID}
+            region: eu-north-1
+            secret_key: ${AWS_SECRET_ACCESS_KEY}
+          topic_arn: arn:aws:sns:eu-north-1:524522256529:grafana-alerts
+        disableResolveMessage: false
