@@ -32,6 +32,7 @@ scrape_configs:
           - https://jordane-brosset.com
           - https://jordane-brosset.com/projects
           - https://jordane-brosset.com/skills
+          - https://jordane-brosset.com/contact
     relabel_configs:
       - source_labels: [__address__]
         target_label: __param_target

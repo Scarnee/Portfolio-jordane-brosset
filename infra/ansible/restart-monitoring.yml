@@ -84,11 +84,8 @@
         shell: docker compose down
         args:
             chdir: "{{ project_dir }}/monitoring"
-        when: monitoring_status.stdout != ""
-        ignore_errors: true
 
       - name: Démarrer la stack monitoring (docker compose up -d)
         shell: docker compose up -d
         args:
             chdir: "{{ project_dir }}/monitoring"
-        when: monitoring_status.stdout == ""
