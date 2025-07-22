@@ -1,7 +1,11 @@
 name: Restart monitoring stack
 
 on:
-    workflow_dispatch:
+  push:
+    branches:
+      - main
+    paths:
+      - 'monitoring/**'
 
 jobs:
     deploy:
