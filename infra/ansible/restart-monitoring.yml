@@ -80,12 +80,6 @@
             groups: docker
             append: yes
 
-      - name: Vérifier si les conteneurs de monitoring sont déjà en cours d'exécution
-        shell: docker ps -q -f name=monitoring
-        register: monitoring_status
-        failed_when: false
-        changed_when: false
-
       - name: Arrêter la stack monitoring (docker compose down)
         shell: docker compose down
         args:
