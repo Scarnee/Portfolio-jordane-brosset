@@ -1,3 +1,4 @@
+# Dockerfile
 FROM nginx:alpine
 
 # Copie de la configuration principale
@@ -11,3 +12,6 @@ COPY conf.d/ /etc/nginx/conf.d/
 
 # Copie des certificats Let's Encrypt
 COPY certs/ /etc/letsencrypt/
+
+# Copie du fichier .htpasswd généré localement
+COPY .htpasswd /etc/nginx/.htpasswd
