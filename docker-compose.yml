@@ -26,11 +26,16 @@ services:
       - /etc/letsencrypt/live/jordane-brosset.com/privkey.pem:/etc/letsencrypt/live/jordane-brosset.com/privkey.pem:ro
       - ./nginx/ssl/options-ssl-nginx.conf:/etc/nginx/ssl/options-ssl-nginx.conf:ro
       - /var/www/certbot:/var/www/certbot
-      - ./nginx/.htpasswd:/etc/nginx/.htpasswd
+      - ./nginx/.htpasswd:/etc/nginx/.htpasswd:ro  # Montage en lecture seule
+      - htpasswd_data:/etc/nginx/.htpasswd_data  # Volume persistant pour htpasswd
     networks:
       - frontend
       - web
       - saas-platform-network
+
+volumes:
+  htpasswd_data:  # Crée un volume persistant pour stocker le fichier .htpasswd
+    driver: local
 
 networks:
   web:
