@@ -30,6 +30,8 @@ scrape_configs:
     static_configs:
       - targets:
           - https://jordane-brosset.com
+          - https://jordane-brosset.com/projects
+          - https://jordane-brosset.com/skills
     relabel_configs:
       - source_labels: [__address__]
         target_label: __param_target
