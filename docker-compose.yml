@@ -26,6 +26,7 @@ services:
       - /etc/letsencrypt/live/jordane-brosset.com/privkey.pem:/etc/letsencrypt/live/jordane-brosset.com/privkey.pem:ro
       - ./nginx/ssl/options-ssl-nginx.conf:/etc/nginx/ssl/options-ssl-nginx.conf:ro
       - /var/www/certbot:/var/www/certbot
+      - ./nginx/.htpasswd:/etc/nginx/.htpasswd
     networks:
       - frontend
       - web
