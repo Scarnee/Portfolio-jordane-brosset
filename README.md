@@ -6,9 +6,12 @@
   <img src="https://img.shields.io/badge/Made%20with-React-blue" alt="Made with React">
 </p>
 
-Ce projet est le portfolio personnel de **Jordane Brosset**, développé pour mettre en avant ses compétences en **développement web** (React, SCSS, i18n) et en **DevOps** (Docker, Ansible, Terraform, CI/CD).
+Ce projet est le portfolio personnel de **Jordane Brosset**, développé pour démontrer ses compétences en :
 
-Le site est **multilingue, responsive**, entièrement **dockerisé** et **déployé automatiquement sur AWS EC2** via GitHub Actions.
+- **Développement web** : React, SCSS, i18n multilingue.
+- **DevOps** : Conteneurisation Docker, Ansible, Terraform, CI/CD sur GitHub Actions.
+
+Le site est **responsive, multilingue**, entièrement **conteneurisé** et **déployé automatiquement sur AWS EC2**.
 
 ## Démo
 
@@ -22,7 +25,7 @@ Le site est **multilingue, responsive**, entièrement **dockerisé** et **déplo
 
 ## Fonctionnalités
 
--   **Frontend** : React (Vite), SCSS, i18n (français, anglais, espagnol), design responsive, transitions animées, présentation de projets.
+-   **Frontend** : React (Vite), SCSS, i18n (français, anglais, espagnol), Design responsive, Transitions animées, Présentation de projets.
 -   **DevOps** : Frontend dockerisé, configuration Nginx, playbook Ansible pour le déploiement, et Terraform pour la gestion de l’infrastructure AWS.
 -   **CI/CD** : Workflow GitHub Actions pour le déploiement automatisé sur AWS EC2.
 -   **Monitoring** : Monitoring de l’application avec Prometheus et Grafana.
@@ -33,7 +36,7 @@ Le site est **multilingue, responsive**, entièrement **dockerisé** et **déplo
 ├── frontend/               # Application React (Vite, SCSS, i18n)
 ├── infra/
 │   ├── ansible/            # Playbook & rôles Ansible pour le provisioning/déploiement
-│   └── terraform/          # Scripts Terraform pour la création d’EC2 AWS
+│   └── terraform/          # Fichiers de configuration Terraform pour la création d’EC2 AWS
 ├── monitoring/             # Stack Prometheus, Grafana, exporters, dashboards, alerting
 │   ├── grafana/
 │   └── prometheus/
@@ -41,7 +44,7 @@ Le site est **multilingue, responsive**, entièrement **dockerisé** et **déplo
 ├── docker-compose.yml      # Orchestration multi-conteneurs (frontend, nginx, etc.) pour l'environnement de production
 ├── docker-compose.test.yml # Orchestration multi-conteneurs (frontend, nginx, etc.) pour l'environnement de test
 ├── .github/                # Workflows GitHub Actions (CI/CD)
-│   ├── cleanup.yml         # Workflow pour la maintenance des containers sur EC2
+│   ├── cleanup.yml         # Workflow pour la maintenance des conteneurs sur EC2
 │   ├── deploy.yml          # Workflow pour déployer l'application en production ou en test
 │   └── monitoring.yml      # Workflow pour la gestion de la stack monitoring
 └── README.md
