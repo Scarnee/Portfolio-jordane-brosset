@@ -41,9 +41,9 @@ Le site est **multilingue, responsive**, entièrement **dockerisé** et **déplo
 ├── docker-compose.yml      # Orchestration multi-conteneurs (frontend, nginx, etc.) pour l'environnement de production
 ├── docker-compose.test.yml # Orchestration multi-conteneurs (frontend, nginx, etc.) pour l'environnement de test
 ├── .github/                # Workflows GitHub Actions (CI/CD)
-│   ├── ci.yml              # Workflow pour le déploiement sur EC2
-│   ├── deploy.yml          # Workflow pour déployer l'application en production
-│   └── cleanup.yml         # Workflow pour la maintenance des containers sur EC2
+│   ├── cleanup.yml         # Workflow pour la maintenance des containers sur EC2
+│   ├── deploy.yml          # Workflow pour déployer l'application en production ou en test
+│   └── monitoring.yml      # Workflow pour la gestion de la stack monitoring
 └── README.md
 ```
 
