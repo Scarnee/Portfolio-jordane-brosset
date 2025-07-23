@@ -4,6 +4,8 @@ on:
     schedule:
         - cron: "0 3 * * 0" # Tous les dimanches à 3h du matin
     workflow_dispatch: # Aussi exécutable manuellement
+    repository_dispatch:
+        types: [grafana_alert]
 
 jobs:
     cleanup:
