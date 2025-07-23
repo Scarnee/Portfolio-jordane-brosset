@@ -51,11 +51,19 @@ Le site est **multilingue, responsive**, entièrement **dockerisé** et **déplo
 
 ### Déploiement manuel
 
--   Le workflow [**deploy.yml**](.github/workflows/deploy.yml) est déclenché manuellement via l'option `workflow_dispatch` dans GitHub Actions. Lors de son déclenchement, tu peux choisir l'environnement de déploiement (soit `prod` pour la production, soit `test` pour l'environnement de test). Ce workflow provisionne et déploie l'application sur **AWS EC2** en utilisant **Ansible** et **Docker**.
+- Le workflow [**deploy.yml**](.github/workflows/deploy.yml) est déclenché manuellement via l’option `workflow_dispatch` de GitHub Actions.
+- Lors du déclenchement, l’utilisateur peut choisir l’environnement cible (`prod` pour la production ou `test` pour l’environnement de test).
+- Ce workflow provisionne et déploie l’application sur **AWS EC2**, en utilisant **Ansible** et **Docker**.
 
-### Maintenance des containers
+### Maintenance des conteneurs
 
--   Le pipeline [**cleanup.yml**](.github/workflows/cleanup.yml) assure la gestion des containers existants, les purgeant pour libérer de l'espace et s'assurer que seules les dernières versions sont en fonctionnement.
+- Le workflow [**cleanup.yml**](.github/workflows/cleanup.yml) assure le nettoyage automatique des anciens conteneurs.
+- Il libère de l’espace disque et garantit que seules les versions récentes de l’application sont actives.
+
+### Gestion de la stack de monitoring
+
+- Le workflow [**monitoring.yml**](.github/workflows/monitoring.yml) est déclenché à chaque push sur la branche `main` dans le dossier `monitoring/`.
+- Il met à jour la stack de supervision, incluant les configurations de **Prometheus**, **Grafana**, des **exporters**, et des **dashboards personnalisés**.
 
 ## Auteur
 
