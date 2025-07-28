@@ -1,4 +1,4 @@
-# aws_instance.my-instance:
+# Déclaration de la ressource EC2 principale
 resource "aws_instance" "my-instance" {
   ami                         = "ami-04542995864e26699"
   instance_type               = "t3.micro"
@@ -32,11 +32,12 @@ resource "aws_instance" "my-instance" {
   }
 }
 
-# aws_security_group.my-security-group:
+# Déclaration du groupe de sécurité associé à l'instance
 resource "aws_security_group" "my_security_group" {
   name        = "my-security-group"
   description = "Allow HTTP, SSH, and other services"
 
+  # Ouverture du port SSH pour l'administration
   ingress {
     from_port   = 22
     to_port     = 22
@@ -44,6 +45,7 @@ resource "aws_security_group" "my_security_group" {
     cidr_blocks = ["0.0.0.0/0"]
   }
 
+  # Ouverture du port HTTP (80) pour le trafic web
   ingress {
     from_port   = 80
     to_port     = 80
@@ -51,6 +53,7 @@ resource "aws_security_group" "my_security_group" {
     cidr_blocks = ["0.0.0.0/0"]
   }
 
+  # Ouverture du port HTTPS (443) pour le trafic sécurisé
   ingress {
     from_port   = 443
     to_port     = 443
@@ -58,6 +61,7 @@ resource "aws_security_group" "my_security_group" {
     cidr_blocks = ["0.0.0.0/0"]
   }
 
+  # Ouverture de ports supplémentaires pour des services spécifiques
   ingress {
     from_port   = 5000
     to_port     = 5000
@@ -72,6 +76,7 @@ resource "aws_security_group" "my_security_group" {
     cidr_blocks = ["0.0.0.0/0"]
   }
 
+  # Ouverture du port 9090 pour Prometheus (monitoring)
   ingress {
     from_port   = 9090
     to_port     = 9090
@@ -79,6 +84,7 @@ resource "aws_security_group" "my_security_group" {
     cidr_blocks = ["0.0.0.0/0"]
   }
 
+  # Ouverture du port 3000 pour Grafana (monitoring)
   ingress {
     from_port   = 3000
     to_port     = 3000
@@ -87,6 +93,7 @@ resource "aws_security_group" "my_security_group" {
     description = "Grafana"
   }
 
+  # Ouverture du port 9113 pour Nginx Exporter (monitoring)
   ingress {
     from_port   = 9113
     to_port     = 9113
@@ -95,6 +102,7 @@ resource "aws_security_group" "my_security_group" {
     description = "Nginx Exporter"
   }
 
+  # Autorisation de toutes les connexions sortantes (egress)
   egress {
     from_port   = 0
     to_port     = 0
@@ -103,6 +111,7 @@ resource "aws_security_group" "my_security_group" {
   }
 }
 
+# Affichage de l'adresse IP publique de l'instance à la fin du déploiement
 output "instance_ip" {
   value = aws_instance.my-instance.public_ip
 }
