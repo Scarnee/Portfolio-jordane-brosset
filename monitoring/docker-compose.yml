@@ -1,6 +1,7 @@
-version: '3.8'
+version: "3.8"
 
 services:
+  # Service Prometheus pour la collecte des métriques
   prometheus:
     image: prom/prometheus
     container_name: prometheus
@@ -12,6 +13,7 @@ services:
     networks:
       - monitoring
 
+  # Service cAdvisor pour le monitoring des conteneurs Docker
   cadvisor:
     image: gcr.io/cadvisor/cadvisor:v0.47.1
     container_name: cadvisor
@@ -26,6 +28,7 @@ services:
     networks:
       - monitoring
 
+  # Service Grafana pour la visualisation des métriques
   grafana:
     image: grafana/grafana
     container_name: grafana
@@ -39,7 +42,7 @@ services:
     volumes:
       - ./grafana/provisioning/datasources/datasources.yml:/etc/grafana/provisioning/datasources/datasources.yml
       - ./grafana/dashboards:/var/lib/grafana/dashboards
-      - ./grafana/provisioning/dashboards/dashboards.yml:/etc/grafana/provisioning/dashboards/dashboards.yml     
+      - ./grafana/provisioning/dashboards/dashboards.yml:/etc/grafana/provisioning/dashboards/dashboards.yml
       - grafana-storage:/var/lib/grafana
     networks:
       web:
@@ -47,6 +50,7 @@ services:
           - grafana
       monitoring:
 
+  # Exporter Node pour les métriques système de l'EC2
   node-exporter:
     image: prom/node-exporter
     container_name: node-exporter
@@ -55,6 +59,8 @@ services:
     restart: unless-stopped
     networks:
       - monitoring
+
+  # Exporter Prometheus pour Nginx
   nginx-exporter:
     image: nginx/nginx-prometheus-exporter:latest
     container_name: nginx-exporter
@@ -65,6 +71,7 @@ services:
     networks:
       - monitoring
 
+  # Exporter Blackbox pour tester la disponibilité de endpoints externes
   blackbox:
     image: prom/blackbox-exporter:latest
     container_name: blackbox
@@ -74,11 +81,11 @@ services:
       - monitoring
 
 volumes:
-  grafana-storage:
-  prometheus-data:
+  grafana-storage: # Volume persistant pour Grafana
+  prometheus-data: # Volume persistant pour Prometheus
 
 networks:
   monitoring:
-    driver: bridge
+    driver: bridge # Réseau interne pour le monitoring
   web:
-    external: true
+    external: true # Réseau externe
