@@ -76,6 +76,7 @@
 
 .gitLink {
     width: 50%;
+    text-decoration: none;
 }
 .btnGit {
     font-family: "Orbitron", sans-serif;
@@ -88,6 +89,15 @@
     border: none;
     color: $fifth-color;
     cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+.externalIcon {
+    width: 14px;
+    height: 14px;
+    flex-shrink: 0;
 }
 @include phone {
     .card {
